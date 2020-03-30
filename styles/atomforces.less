@@ -1,0 +1,151 @@
+@import "octicon-mixins";
+@import "octicon-utf-codes";
+@import "ui-variables";
+
+@import (inline) "../node_modules/xterm/css/xterm.css";
+
+.atomforces-element {
+    padding: @component-padding;
+    overflow-y: scroll;
+    overflow-x: auto;
+
+    ul.background-message.centered {
+        top: 1em; // leave space for the login message
+    }
+
+    .login-message {
+        text-align: right;
+        margin-bottom: 0.5em;
+    }
+
+    h1 {
+        font-size: 1.75em;
+        font-weight: bold;
+        line-height: 1;
+        margin-top: 0;
+    }
+
+    .collapsable {
+        .collapsable-collapser {
+            cursor: pointer;
+            -webkit-user-select: none;
+
+            &::before {
+                .icon(20px);
+                content: @chevron-down;
+                color: @text-color-subtle;
+            }
+        }
+
+        &.collapsed {
+            .collapsable-collapser::before {
+                content: @chevron-right;
+            }
+        }
+    }
+
+    .subsection {
+        h2.subsection-heading {
+            display: flex;
+            color: @text-color-highlight;
+            font-size: 1.4em;
+            font-weight: bold;
+            line-height: 1;
+        }
+    }
+
+    .atomforces-countdown {
+        font-size: 2em;
+        font-weight: bold;
+        line-height: 1;
+    }
+
+    .right-button {
+        float: right;
+        position: relative;
+        z-index: 5;
+    }
+
+    table.table {
+        td, th {
+            border: none;
+        }
+        tr {
+            transition: 0.1s;
+            cursor: pointer;
+        }
+        tr:nth-child(odd) {
+            background: @background-color-highlight;
+        }
+        tr:hover {
+            background: @background-color-selected;
+        }
+    }
+
+    .examples-container {
+        padding-left: 1em;
+
+        .checking-mode-checkbox {
+            font-size: 1.2em;
+            margin-bottom: 0.5em;
+            -webkit-user-select: none;
+        }
+
+        .samples-list {
+            padding-left: 0;
+            list-style-type: none;
+
+            li:nth-child(odd) {
+                background: @background-color-highlight;
+            }
+
+            li {
+                padding: 5px;
+
+                h3 {
+                    font-size: 1.3em;
+                    margin: 0;
+                }
+
+                .editor-column {
+                    width: 30%;
+                    float: left;
+                    margin-left: 5%;
+                }
+
+                .editor-column:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+}
+
+.atomforces-dialog .input-text {
+    font-size: @ui-input-size;
+}
+
+.atomforces-dialog.has-no-result atom-text-editor[mini].is-focused {
+    border-color: @text-color-error;
+    box-shadow: 0 0 0 1px @text-color-error;
+    background-color: mix(@text-color-error, @input-background-color, 10%);
+    .selection .region {
+        background-color: mix(@text-color-error, @input-background-color, 50%);
+    }
+    .cursor {
+        border-color: @text-color-error;
+    }
+}
+
+.atomforces-dialog.has-result atom-text-editor[mini].is-focused {
+    border-color: @text-color-success;
+    box-shadow: 0 0 0 1px @text-color-success;
+    background-color: mix(@text-color-success, @input-background-color, 10%);
+    .selection .region {
+        background-color: mix(@text-color-success, @input-background-color, 50%);
+    }
+    .cursor {
+        border-color: @text-color-success;
+    }
+}

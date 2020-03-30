@@ -1,0 +1,30 @@
+{
+  "context-menu": {
+    ".tree-view li.directory .header": [
+      {
+        "label": "Connect to Codeforces Contest",
+        "command": "atomforces:connect-contest"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "Atomforces",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "atomforces:toggle"
+          },
+          {
+              "label": "Clear",
+              "command": "atomforces:clear"
+          }
+          ]
+        }
+      ]
+    }
+  ]
+}

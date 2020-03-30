@@ -1,0 +1,48 @@
+{
+    "name": "atomforces",
+    "main": "./lib/atomforces",
+    "version": "0.1.0",
+    "description": "An atom package helping you with your workflows during Codeforces contests",
+    "keywords": [],
+    "repository": "https://github.com/atom/atomforces",
+    "license": "MIT",
+    "engines": {
+        "atom": ">=1.0.0 <2.0.0"
+    },
+    "dependencies": {
+        "atom-package-deps": "^5.1.0",
+        "axios": "^0.19.2",
+        "cheerio": "^1.0.0-rc.3",
+        "child_process": "^1.0.2",
+        "chokidar": "^3.3.1",
+        "flux": "^3.1.3",
+        "fs-plus": "^3.1.1",
+        "node-pty": "^0.9.0",
+        "open": "^7.0.3",
+        "path": "^0.12.7",
+        "react": "^16.13.0",
+        "react-dom": "^16.13.0",
+        "shallow-equal": "^1.2.1",
+        "tunnel": "0.0.6",
+        "xterm": "^4.4.0",
+        "xterm-addon-fit": "^0.3.0"
+    },
+    "package-deps": [
+        "terminal-tab"
+    ],
+    "consumedServices": {
+        "tree-view": {
+            "versions": {
+                "^1.0.0": "consumeTreeView"
+            }
+        },
+        "snippets": {
+            "versions": {
+                "^0.1.0": "consumeSnippets"
+            }
+        }
+    },
+    "devDependencies": {
+        "electron-rebuild": "^1.10.1"
+    }
+}
