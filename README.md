@@ -35,3 +35,7 @@ Before participating in a rated contest, you should test whether the plugin is w
 ![Plugin screenshot 1](screenshot1.png)
 
 ![Plugin screenshot 2](screenshot2.png)
+
+## Development Notes
+
+When Atom says that `node-gyp` was compiled against a wrong node version, run `node_modules/.bin/electron-rebuild -v 9`.
