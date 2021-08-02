@@ -1,7 +1,7 @@
 {
     "name": "atomforces",
     "main": "./lib/atomforces",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "description": "An atom package helping you with your workflows during Codeforces contests",
     "keywords": [],
     "repository": "https://github.com/MarianDietz/atomforces",
