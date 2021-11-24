@@ -2,161 +2,279 @@
 @import "octicon-utf-codes";
 @import "ui-variables";
 
-@import (inline) "../node_modules/xterm/css/xterm.css";
+// @import (inline) "../node_modules/xterm/css/xterm.css";
 
 .atomforces-element {
-    padding: @component-padding;
-    overflow-y: scroll;
-    overflow-x: auto;
+  padding: @component-padding;
+  overflow-y: scroll;
+  overflow-x: auto;
 
-    ul.background-message.centered {
-        top: 1em; // leave space for the login message
+  ul.background-message.centered {
+    top: 1em; // leave space for the login message
+  }
+
+  .login-message {
+    // text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5em;
+  }
+
+  .profile {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 24px;
+      border-radius: 50%;
+      overflow: hidden;
     }
 
-    .login-message {
-        text-align: right;
-        margin-bottom: 0.5em;
+    .handle {
+      margin-left: 8px;
+      font-size: 1.2em;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+  }
+
+  h1 {
+    font-size: 1.75em;
+    font-weight: bold;
+    line-height: 1;
+    margin-top: 0;
+  }
+
+  .status-display {
+    position: sticky;
+    bottom: 0;
+  }
+
+  .collapsable {
+    .collapsable-collapser {
+      cursor: pointer;
+      -webkit-user-select: none;
+
+      &::before {
+        .icon(20px);
+        content: @chevron-down;
+        color: @text-color-subtle;
+      }
     }
 
-    h1 {
-        font-size: 1.75em;
-        font-weight: bold;
-        line-height: 1;
-        margin-top: 0;
+    &.collapsed {
+      .collapsable-collapser::before {
+        content: @chevron-right;
+      }
+    }
+  }
+
+  .subsection {
+    h2.subsection-heading {
+      display: flex;
+      color: @text-color-highlight;
+      font-size: 1.4em;
+      font-weight: bold;
+      line-height: 1;
+    }
+  }
+
+  .atomforces-countdown {
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1;
+  }
+
+  .right-button {
+    float: right;
+    position: relative;
+    z-index: 5;
+  }
+
+  .link {
+    margin-bottom: 0.5em;
+    white-space: nowrap;
+    display: flex;
+    justify-content: space-between;
+
+    a{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .standing{
+    color: #d1a915;
+    font-weight: 600;
+
+    i::before{
+      width: 14px;
+      font-size: 14px;
+    }
+  }
+
+  table.table {
+    td,
+    th {
+      border: none;
     }
 
-    .status-display {
-        position: sticky;
-        bottom: 0;
+    .rowcol:nth-child(1) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
-    .collapsable {
-        .collapsable-collapser {
-            cursor: pointer;
-            -webkit-user-select: none;
+    .subcount{
+      color: #328bff;
+      font-weight: 600;
 
-            &::before {
-                .icon(20px);
-                content: @chevron-down;
-                color: @text-color-subtle;
-            }
+      i::before{
+        width: 14px;
+        font-size: 14px;
+      }
+    }
+
+    tr {
+      transition: 0.1s;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 4fr auto 1fr;
+    }
+
+    tr:nth-child(odd) {
+      background: @background-color-highlight;
+    }
+
+    tr:hover {
+      background: @background-color-selected;
+    }
+  }
+
+  .examples-container {
+    padding-left: 1em;
+
+    .checking-mode-checkbox {
+      font-size: 1.2em;
+      margin-bottom: 0.5em;
+      margin-right: 2em;
+      -webkit-user-select: none;
+    }
+
+    .samples-list {
+      padding-left: 0;
+      list-style-type: none;
+
+      li:nth-child(odd) {
+        background: @background-color-highlight;
+      }
+
+      li {
+        padding: 5px;
+
+        h3 {
+          font-size: 1.3em;
+          margin: 0;
         }
 
-        &.collapsed {
-            .collapsable-collapser::before {
-                content: @chevron-right;
-            }
+        .editor-column {
+          width: 30%;
+          float: left;
+          margin-left: 5%;
         }
+
+        .editor-column:first-child {
+          margin-left: 0;
+        }
+      }
     }
-
-    .subsection {
-        h2.subsection-heading {
-            display: flex;
-            color: @text-color-highlight;
-            font-size: 1.4em;
-            font-weight: bold;
-            line-height: 1;
-        }
-    }
-
-    .atomforces-countdown {
-        font-size: 2em;
-        font-weight: bold;
-        line-height: 1;
-    }
-
-    .right-button {
-        float: right;
-        position: relative;
-        z-index: 5;
-    }
-
-    .link {
-        margin-bottom: 0.5em;
-        white-space: nowrap;
-    }
-
-    table.table {
-        td, th {
-            border: none;
-        }
-        tr {
-            transition: 0.1s;
-            cursor: pointer;
-        }
-        tr:nth-child(odd) {
-            background: @background-color-highlight;
-        }
-        tr:hover {
-            background: @background-color-selected;
-        }
-    }
-
-    .examples-container {
-        padding-left: 1em;
-
-        .checking-mode-checkbox {
-            font-size: 1.2em;
-            margin-bottom: 0.5em;
-            margin-right: 2em;
-            -webkit-user-select: none;
-        }
-
-        .samples-list {
-            padding-left: 0;
-            list-style-type: none;
-
-            li:nth-child(odd) {
-                background: @background-color-highlight;
-            }
-
-            li {
-                padding: 5px;
-
-                h3 {
-                    font-size: 1.3em;
-                    margin: 0;
-                }
-
-                .editor-column {
-                    width: 30%;
-                    float: left;
-                    margin-left: 5%;
-                }
-
-                .editor-column:first-child {
-                    margin-left: 0;
-                }
-            }
-        }
-    }
-
+  }
 }
 
 .atomforces-dialog .input-text {
-    font-size: @ui-input-size;
+  font-size: @ui-input-size;
 }
 
 .atomforces-dialog.has-no-result atom-text-editor[mini].is-focused {
+  border-color: @text-color-error;
+  box-shadow: 0 0 0 1px @text-color-error;
+  background-color: mix(@text-color-error, @input-background-color, 10%);
+
+  .selection .region {
+    background-color: mix(@text-color-error, @input-background-color, 50%);
+  }
+
+  .cursor {
     border-color: @text-color-error;
-    box-shadow: 0 0 0 1px @text-color-error;
-    background-color: mix(@text-color-error, @input-background-color, 10%);
-    .selection .region {
-        background-color: mix(@text-color-error, @input-background-color, 50%);
-    }
-    .cursor {
-        border-color: @text-color-error;
-    }
+  }
 }
 
 .atomforces-dialog.has-result atom-text-editor[mini].is-focused {
+  border-color: @text-color-success;
+  box-shadow: 0 0 0 1px @text-color-success;
+  background-color: mix(@text-color-success, @input-background-color, 10%);
+
+  .selection .region {
+    background-color: mix(@text-color-success, @input-background-color, 50%);
+  }
+
+  .cursor {
     border-color: @text-color-success;
-    box-shadow: 0 0 0 1px @text-color-success;
-    background-color: mix(@text-color-success, @input-background-color, 10%);
-    .selection .region {
-        background-color: mix(@text-color-success, @input-background-color, 50%);
-    }
-    .cursor {
-        border-color: @text-color-success;
-    }
+  }
+}
+
+.recent-actions {
+  margin: 1em;
+  font-size: 0.9em;
+}
+
+.rated-user {
+  font-family: helvetica neue,Helvetica,Arial,sans-serif;
+  text-decoration: none!important;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.user-black {
+  color: #000;
+  font-weight: 400;
+}
+
+.grandmaster,
+.legendary {
+  color: red;
+}
+
+.user-yellow {
+  color: #bb0;
+}
+
+.master {
+  color: #ff8c00;
+}
+
+.international.master .candidate.master {
+  color: #aa05aa;
+}
+
+.expert {
+  color: blue;
+}
+
+.specialist {
+  color: #03a89e;
+}
+
+.pupil {
+  color: green;
+}
+
+.newbie {
+  color: gray;
+}
+
+.user-admin {
+  color: #000;
 }
