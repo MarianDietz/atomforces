@@ -1,9 +1,7 @@
 @import "octicon-mixins";
 @import "octicon-utf-codes";
 @import "ui-variables";
-
 // @import (inline) "../node_modules/xterm/css/xterm.css";
-
 .atomforces-element {
   padding: @component-padding;
   overflow-y: scroll;
@@ -98,18 +96,18 @@
     display: flex;
     justify-content: space-between;
 
-    a{
+    a {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
   }
 
-  .standing{
+  .standing {
     color: #d1a915;
     font-weight: 600;
 
-    i::before{
+    i::before {
       width: 14px;
       font-size: 14px;
     }
@@ -121,27 +119,9 @@
       border: none;
     }
 
-    .rowcol:nth-child(1) {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .subcount{
-      color: #328bff;
-      font-weight: 600;
-
-      i::before{
-        width: 14px;
-        font-size: 14px;
-      }
-    }
-
     tr {
       transition: 0.1s;
       cursor: pointer;
-      display: grid;
-      grid-template-columns: 4fr auto 1fr;
     }
 
     tr:nth-child(odd) {
@@ -150,6 +130,29 @@
 
     tr:hover {
       background: @background-color-selected;
+    }
+  }
+
+  .problemview {
+    .rowcol:nth-child(1) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .subcount {
+      color: #328bff;
+      font-weight: 600;
+
+      i::before {
+        width: 14px;
+        font-size: 14px;
+      }
+    }
+
+    tr {
+      display: grid;
+      grid-template-columns: 4fr 1fr auto;
     }
   }
 
@@ -179,14 +182,36 @@
           margin: 0;
         }
 
+        .clearfix {
+          width: 100%;
+          // display: flex;
+          // justify-content: space-between;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          column-gap: 4px;
+
+          &::before, &::after{
+            content: none;
+          }
+        }
+
         .editor-column {
-          width: 30%;
-          float: left;
-          margin-left: 5%;
+          display: flex;
+          width: 100%;
+          max-height: 16em;
+          overflow: hidden;
+          flex-direction: column;
+          // align-items: center;
+
+          pre {
+            flex-grow: 1;
+            padding: 2px 4px;
+            background: @app-background-color;
+          }
         }
 
         .editor-column:first-child {
-          margin-left: 0;
+          // margin-left: 0;
         }
       }
     }
