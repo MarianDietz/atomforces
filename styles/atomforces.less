@@ -3,6 +3,11 @@
 @import "ui-variables";
 // @import (inline) "../node_modules/xterm/css/xterm.css";
 .atomforces-element {
+  *::selection {
+    background: inherit;
+    color: inherit;
+  }
+  
   padding: @component-padding;
   padding-right: 0;
   overflow-y: scroll;
@@ -163,6 +168,34 @@
     tr {
       display: grid;
       grid-template-columns: 4fr 1fr auto;
+    }
+  }
+
+  .standtable{
+    width: 100%;
+    margin-bottom: 1.5em;
+
+    tr:nth-child(odd){
+      background: @background-color-highlight;
+    }
+
+    td{
+      text-align: center;
+      border: 1px solid @background-color-selected;
+      padding: 2px;
+    }
+
+    td:nth-child(2){
+      text-align: left;
+      padding-left: 0.5em;
+    }
+
+    .text-bold{
+      font-weight: 700;
+    }
+
+    .text-sm{
+      font-size: 0.9em;
     }
   }
 
