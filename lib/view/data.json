@@ -2,8 +2,86 @@
   "avatar": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAPESURBVHhe7Zlpb9pAEIYHA+FMCuQAcipR2qr//89USpoQ7jPctzHd2U6kfGh8MWtA5pHQ7hgZ43dnZmd3A+VqbQ0+RqPWtxwEoNa3HASg1rccBKDWt2xVgPV6LT/bxNNCaLnUof3+Dv3BECaTCSxXK1QBNE2DWCwKJ8kknGbSkIjH6Q71eCKALl60Uq1Bs92xNeLHQoi76yuIx2N0RR3KBRiOxvD8WhCjv6Qr9ggEAnCdz0E+l6UralCaA3r9Pvx+enb88gh6Skl4TaFYoitqUCbAaDyGp5fCxkkOw0Z4KVn8KBFgJWIe3Z4rw1frDRgMh2TxokSASq0Oi4VztzfjtVhmE/Qz7ALgVNdotcniYz6fyymUG3YBWh17U50bmgqEZReg2+tTj5/xZArzxYIsHlgFWBmG+JMTstQwHI2oxwOrANPpjHrq4H4GqwBuCh6nLJifwSqAsTaopw7uBMsqgBZg/bn/wv0M1l87OgpTTx3cz2AVIBaNUk8d3M/gDQFNg2QiQZYaTo6T1OOBPWgz6RT1+EFxw+EdDgHkLJORnqCC7PkZ9fhg/6ehUBByF+dk8YF7hrhfyI2SobrMZSEaiZC1Obg9dn97QxYvSgTAEHh8uIcgUyjcXOaVJVc1wSqIC5f98fiwsQjoTbnsBVn8KBMAwe3tXz+/uwoH9CJ0+2sx+irx5FzAEMvkWqMJ9WZL7hdakUml4OYqDxHGPPIVnp4M4X5Bt9uTJ0Pj6RQWcnNjLWaOkKzw0GNO02nx4kf/bvAATwVAcLN0qS+lJ3ys7DDLB7UghMIhOBKFDtpeoVSA8XgCg9FI7hJNxIjPZnP6xhz0gFg0JjJ/XHhFQs4AqkRhF2AwHEHnvQvdfg903Tre7YAJMfXtRIYHtpxisAhgCFdutTvQEEluNrc3ym7BtQCWxPgJBoN01T0bC4Db4OVq3ZPtsM/gy8saQZTdm3iEawEwnl/eivIMcJtEoxF4uLt1XSm6EgBPaArFspzfdwH0gKt8TnqEUxxXgkIweCkUd+blEZxO8X/9Kbw53jR1JECxXJEntbsKzj5OT6VtC/BRyu46eDRXKJXJssaWAHgcVapUydp9cEpud+ydJFsKgLGOMb9vvJXLtqZmSwHQ7blPZL1gtTJkfWKFqQCYTPYh7r8Cp2urs0RTATCh6LpO1v6BA2iVC0wF6PUH1NtfrN7BVIBtl7kc4FLcrCwwFQBXdnjzPn8MYy2S+NcrVNO1gNOyclcxWy2y7AfsM6Yh4AcOAlDrWw4CUOtbDgJQ61t8LgDAX/4wIKhybrFAAAAAAElFTkSuQmCC",
   "defaults": {
     "43": {
-      "compile": "g++ -std=c++17 -g -Wall -Wextra -fsanitize=undefined,address -DGLIBCXX_DEBUG <%= file %>.c",
-      "run": "./a.out"
+      "compile": "gcc -std=standard -g -Wall -Wextra -fsanitize=undefined,address <%=file%>.c",
+      "run": "./a.out",
+      "ext": ".c"
+    },
+    "52": {
+      "compile": "clang++ -std=c++17 -g -W -fsanitize=undefined,address <%=file%>.cpp",
+      "run": "./a.out",
+      "ext": ".cpp"
+    },
+    "50": {
+      "compile": "g++ -std=c++14 -g -Wall -Wextra -fsanitize=undefined,address -DGLIBCXX_DEBUG <%=file%>.cpp",
+      "run": "./a.out",
+      "ext": ".cpp"
+    },
+    "54": {
+      "compile": "g++ -std=c++17 -g -Wall -Wextra -fsanitize=undefined,address -DGLIBCXX_DEBUG <%=file%>.cpp",
+      "run": "./a.out",
+      "ext": ".cpp"
+    },
+    "59": {
+      "compile": "cl /std:c++17 /Wall /fsanitize=undefined,address <%=file%>.cpp",
+      "run": "./main.exe",
+      "ext": ".cpp"
+    },
+    "61": {"copy": "54"},
+    "65": {
+      "compile": "csc /t:exe /out:a.exe <%=file%>.cs",
+      "run": "./a.exe",
+      "ext": ".cs"
+    },
+    "9": {
+      "compile": "dmcs -t:exe -out:a.exe <%=file%>.cs",
+      "run": "./a.exe",
+      "ext": ".cs"
+    },
+    "28": {
+      "compile": "dmd -L/STACK:268435456 -version=ONLINE_JUDGE -O -release -inline -noboundscheck <%=file%>.d",
+      "run": "./<%=file%>",
+      "ext": ".d"
+    },
+    "32": {
+      "skipCompilation": true,
+      "run": "go run <%=file%>.go",
+      "ext": ".go"
+    },
+    "12": {
+      "compile": "ghc <%=file%>.hs -o a",
+      "run": "./a",
+      "ext": ".hs"
+    },
+    "60": {
+      "compile": "javac <%=file%>.java",
+      "run": "java <%=file%>",
+      "ext": ".java"
+    },
+    "36": {"copy": "60"},
+    "48": {
+      "compile": "kotlinc <%=file%>.kt -include-runtime -d a.jar",
+      "run": "java -jar a.jar",
+      "ext": ".kt"
+    },
+    "31": {
+      "skipCompilation": true,
+      "run": "python <%=file%>.py",
+      "ext": ".py"
+    },
+    "7": {"copy": "31"},
+    "66": {"copy": "31"},
+    "69": {"copy": "31"},
+    "40": {"copy": "31"},
+    "41": {"copy": "31"},
+    "34": {
+      "skipCompilation": true,
+      "run": "d8 <%=file%>.js",
+      "ext": ".js"
+    },
+    "55": {
+      "skipCompilation": true,
+      "run": "node <%=file%>.js",
+      "ext": ".js"
     }
   }
 }
