@@ -18,6 +18,7 @@
         "flux": "^4.0.1",
         "fs-plus": "^3.1.1",
         "lodash.template": "^4.5.0",
+        "node-pty-prebuilt-multiarch": "^0.10.1-pre.4",
         "opn": "^6.0.0",
         "path": "^0.12.7",
         "react": "^17.0.2",
@@ -28,7 +29,7 @@
         "xterm-addon-fit": "^0.5.0"
     },
     "devDependencies": {
-        "electron-rebuild": "^2.2.0"
+        "electron-rebuild": "^3.2.5"
     },
     "package-deps": [
         {
