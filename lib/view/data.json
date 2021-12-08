@@ -66,6 +66,7 @@
     "31": {
       "skipCompilation": true,
       "run": "python <%=file%>.py",
+      "scope": ".source.python",
       "ext": ".py"
     },
     "7": {"copy": "31"},
